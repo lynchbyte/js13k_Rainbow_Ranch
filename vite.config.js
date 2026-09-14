@@ -7,9 +7,6 @@ import CleanCSS from 'vite-plugin-clean-css';
 import { promises as fs } from 'fs';
 import path from 'path';
 
-
-
-// https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
 
   if (command === 'serve') {
@@ -34,7 +31,7 @@ export default defineConfig(({ command, mode }) => {
         host: true,
 
         open: true,
-        port: 8080,
+        port: 6000,
 
         watch: {
           usePolling: true,
@@ -77,7 +74,7 @@ export default defineConfig(({ command, mode }) => {
 
           rollupOptions: {
             input: 'index.html',
-            external: ['three', 'lil-gui'], //not include three in the bundle, called in index.html
+            external: ['three', 'lil-gui'], 
             output: {
            
               codeSplitting: false,
@@ -108,60 +105,9 @@ export default defineConfig(({ command, mode }) => {
 
           zipPack({ filter: (file) => !file.includes('Thumbs.db') }),
 
-
-
-        ],
-
-      // plugins: [basicSsl(), glsl({
-      //   minify: true
-      // }), CleanCSS(), zipPack({
-      //   outDir: 'dist',
-      //   outFileName: 'game.zip',
-      //   include: ['**/*'],
-      //   exclude: ['**/*.map', '**/node_modules/**', '**/.git/**', '**/dist/**'],
-      //   async onBeforeZip() {
-      //     const distDir = path.resolve(__dirname, 'dist');
-      //     const files = await fs.readdir(distDir);
-      //     for (const file of files) {
-      //       if (file.endsWith('.map')) {
-      //         await fs.unlink(path.join(distDir, file));
-      //       }
-      //     }
-      //   },
-      // })],
-
-      // resolve: {
-      //   alias: {
-      //   },
-      // },
-
-      // build: {
-      //   sourcemap: false,
-      // },
-
-      // server: {
-
-      //   host: 'localhost',
-      //   host: true,
-
-      //   open: true,
-      //   port: 8080,
-
-      //   watch: {
-      //     usePolling: true,
-      //     interval: 1000,
-      //     ignored: [
-      //       '**/node_modules/**',
-      //       '**/.git/**',
-      //       '**/dist/**'
-      //     ]
-      //   }
-      // },
-
-      // base: "/"
+        ],     
     }
   }
-
 });
 
 
@@ -186,8 +132,7 @@ const deleteFolderContents = async (folderPath) => {
 
 
 
-//npm run dev
-//npm run build
+
 
 
 
